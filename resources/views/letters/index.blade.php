@@ -32,7 +32,7 @@
                     <td>{{ $letter->present }}</td>
                     <td>{{ $letter->arrival_date }}</td>
                     <td>
-                        <a href="#" class="btn btn-success">
+                        <a href="{{ route('letters.show', $letter->id) }}" class="btn btn-success">
                             <i class="fa-solid fa-eye"></i>
                         </a>
                         <a href="#" class="btn btn-warning">

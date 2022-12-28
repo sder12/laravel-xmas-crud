@@ -48,7 +48,8 @@ class LetterController extends Controller
      */
     public function show($id)
     {
-        //
+        $letter = Letter::findOrFail($id);
+        return view('letters.show', compact('letter'));
     }
 
     /**
