@@ -34,13 +34,14 @@ return new class extends Migration
             $table->string('present', 250);
 
             //Testo Letterina
-            $table->text('letter_text');
+            $table->text('letter_text')->nullable();
 
             //Rating bambino 1 a 5
-            $table->text('goodness_rating');
+            $table->tinyInteger('goodness_rating')->unsigned();
 
             //Se il regalo è stato consegnato
-            $table->boolean('present_was_delivered');
+            $table->tinyInteger('present_was_delivered')->default(0);
+
             $table->timestamps();
         });
     }
