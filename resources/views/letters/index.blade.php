@@ -3,7 +3,7 @@
 
 @section('content')
     <h1 class="text-center">Letters</h1>
-
+    <a href="{{ route('letters.create') }}" class="btn btn-outline-success">Create new letter</a>
 
     <table class="table table-striped">
         <thead>
@@ -35,7 +35,7 @@
                         <a href="{{ route('letters.show', $letter->id) }}" class="btn btn-success">
                             <i class="fa-solid fa-eye"></i>
                         </a>
-                        <a href="#" class="btn btn-warning">
+                        <a href="{{ route('letters.edit', $letter->id) }}" class="btn btn-warning">
                             <i class="fa-solid fa-pencil"></i>
                         </a>
                         <a href="#" class="btn btn-danger">

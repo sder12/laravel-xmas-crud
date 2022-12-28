@@ -48,6 +48,8 @@
         </dt>
         <dd>
             {{ $letter->letter_text }}
+            {{-- se description a pezzi di html --}}
+            {!! $letter->letter_text !!}
         </dd>
         <dt>
             City:

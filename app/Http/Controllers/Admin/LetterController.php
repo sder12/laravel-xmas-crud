@@ -26,7 +26,7 @@ class LetterController extends Controller
      */
     public function create()
     {
-        //
+        return view('letters.create');
     }
 
     /**
@@ -37,7 +37,12 @@ class LetterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        //dd($data);
+        $letter = new Letter();
+        $letter->fill($data);
+        $letter->save();
+        return redirect()->route('letters.show', $letter->id);
     }
 
     /**
@@ -58,9 +63,9 @@ class LetterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Letter $letter)
     {
-        //
+        return view('letters.edit', compact('letter'));
     }
 
     /**
@@ -70,9 +75,11 @@ class LetterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Letter $letter)
     {
-        //
+        $data = $request->all();
+        $letter->update($data);
+        return redirect()->route('letters.show', $letter->id);
     }
 
     /**
