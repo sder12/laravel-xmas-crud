@@ -38,13 +38,19 @@
                         <a href="{{ route('letters.edit', $letter->id) }}" class="btn btn-warning">
                             <i class="fa-solid fa-pencil"></i>
                         </a>
-                        <a href="#" class="btn btn-danger">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
+                        <form action="{{ route('letters.destroy', $letter->id) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger delete-btn" data-letter-name="{{ $letter->name }}"  data-letter-surname="{{ $letter->surname }}">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
+
                     </td>
                 </tr>
             @endforeach
 
         </tbody>
     </table>
+    @include('partials.delete-modal')
 @endsection

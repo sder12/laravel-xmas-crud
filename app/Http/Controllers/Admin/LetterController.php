@@ -88,8 +88,9 @@ class LetterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Letter $letter)
     {
-        //
+        $letter->delete();
+        return redirect()->route('letters.index');
     }
 }
