@@ -4,6 +4,23 @@
     <h2>Create new letter for Santa</h2>
     <div class="row mt-3">
         <div class="col col-8">
+            {{-- @if ($errors->all())
+                @php
+                    var_dump($errors->all());
+                @endphp
+            @endif --}}
+
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li> {{ $error }} </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
 
             <form action="{{ route('letters.store') }}" method="POST">
                 @csrf
