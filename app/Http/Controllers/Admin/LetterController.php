@@ -103,7 +103,7 @@ class LetterController extends Controller
         $validationResult = Validator::make(
             $data,
             [
-                'name' => 'required|min:5|max:50',
+                'name' => 'required|min:2|max:50',
                 'surname' => 'required|min:5|max:50',
                 'address' => 'required',
                 'city' => 'required|min:5|max:100',
